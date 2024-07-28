@@ -20,7 +20,9 @@ class SearchResultsPageLocators:
 
 
 class FilmPageLocators:
+    FILM_TITLE = (By.XPATH, "//h1/span")  # Должен содержать название фильма из поиска/исходное
+    FILM_RATING = (By.XPATH, "//span[contains(@class, 'film-rating-value')]/span[contains(@class, 'styles_rating')]")  # текст должен быть равен рейтингу из поиска
+    FILM_RELEASE = (By.XPATH, "//a[contains(@href, 'lists/movies/year')]")
 
-# FILM_TITLE =
-# FILM_RATING =
-# FILM_RELEASE =
+
+
