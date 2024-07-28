@@ -1,9 +1,17 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import requests
+
 browser = webdriver.Chrome()
 
-main_url = "https://www.kinopoisk.ru/"
+main_url = "https://www.kinopoisk.ru"
+browser.get(main_url)
+time.sleep(15)
+
+
+
+
 film_title = "Ирония судьбы, или С легким паром"
 
 # Main_Page

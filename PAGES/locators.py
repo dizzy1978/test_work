@@ -24,5 +24,6 @@ class FilmPageLocators:
     FILM_RATING = (By.XPATH, "//span[contains(@class, 'film-rating-value')]/span[contains(@class, 'styles_rating')]")  # текст должен быть равен рейтингу из поиска
     FILM_RELEASE = (By.XPATH, "//a[contains(@href, 'lists/movies/year')]")
 
+    POSTER_SRC = (By.XPATH, "//a[@class='styles_posterLink__C1HRc']/img")
 
 
