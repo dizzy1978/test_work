@@ -14,15 +14,16 @@ time.sleep(5)
 
 SEARCH_AREA = browser.find_elements(By.XPATH, '//div[@class="styles_rowLight__P8Y_1 styles_row__da_RK"]')
 
-j = {}
+json_data = {}
 for e in SEARCH_AREA:
-  list = e.text.split("\n")
+  lst = e.text.split("\n")
+  k = lst[0]
+  v = "\n".join( lst[1:] )
+  json_data[k] = v
 
 
-
-
-
-
+with open(r'film_data\info\film_data.json', 'w') as f:
+  json.dump(json_data, f, ensure_ascii=False)
 
 
 
