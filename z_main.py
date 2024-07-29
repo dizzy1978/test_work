@@ -17,7 +17,7 @@ film_title = "Ирония судьбы, или С легким паром"
 # Main_Page
 browser.get(main_url)
 time.sleep(15)
-print (browser.current_url)
+print (browser.current_url, r'\n\n')
 time.sleep(5)
 
 SEARCH_AREA = browser.find_element(By.XPATH, '//*[@placeholder="Фильмы, сериалы, персоны"]')
@@ -42,7 +42,7 @@ SEARCH_RATING = browser.find_element(By.XPATH,
 print(SEARCH_RATING.text)
 
 SEARCH_RELEASE = browser.find_element(By.XPATH, "//div[@class='element most_wanted']//span[@class='year']")
-print(SEARCH_RELEASE.text)
+print(SEARCH_RELEASE.text, r'\n\n')
 
 SEARCH_TITLE = browser.find_element(By.XPATH, "//a[contains(text(),'Ирония судьбы') and contains(text(),'С легким паром')]")
 time.sleep(5)
@@ -66,11 +66,14 @@ time.sleep(5)
 
 FILM_RELEASE = browser.find_element(By.XPATH, "//a[contains(@href, 'lists/movies/year')]")
 rel = FILM_RELEASE.text
-print(rel)
+print(rel, r'\n\n')
 time.sleep(15)
 
-
-
+IMAGES_LINK = browser.find_element(By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
+time.sleep(5)
+IMAGES_LINK.click()
+time.sleep(5)
+print(browser.current_url, r'\n\n')
 
 
 
