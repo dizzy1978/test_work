@@ -25,8 +25,7 @@ class FilmPage(BasePage):
         assert SearchResultsPageLocators.SEARCH_RELEASE == FilmPageLocators.FILM_RELEASE, "Год выпуска фильма не совпадает с поиском!"
         print("---Год выпуска фильма проверен")
 
-    def do_save_film_poster(
-            self):  # Сохраняем постер фильма (путь захардкожен, можно вынести в локаторы/генерить. Линукс. os.makedirs(dir). )
+    def do_save_film_poster(self):  # Сохраняем постер фильма (путь захардкожен, можно вынести в локаторы/генерить. Линукс. os.makedirs(dir). )
         poster_src = self.browser.find_element(FilmPageLocators.POSTER_SRC)
         img_src = poster_src.get_attribute("src")
         img = requests.get(img_src)
