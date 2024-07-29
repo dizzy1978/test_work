@@ -32,6 +32,8 @@ class FilmPage(BasePage):
             file.write(img.content)
         print("---Film Poster image successfully saved")
 
+    def do_save_film_info_to_json(self):  # Сохраняем информацию из блока "О фильме" в JSON файл  (путь захардкожен, можно вынести в локаторы)
+
 
 
 
