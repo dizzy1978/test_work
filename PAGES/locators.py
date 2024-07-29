@@ -26,6 +26,8 @@ class FilmPageLocators:
     POSTER_SRC = (By.XPATH, "//a[@class='styles_posterLink__C1HRc']/img")
     ABOUT_FILM_BLOCK = (By.XPATH, "//div[@class='styles_rowLight__P8Y_1 styles_row__da_RK']")
     IMAGES_LINK = (By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
+    ALL_IMAGES = (By.XPATH, "//div[@class = 'styles_root__eTXf4 styles_gallery__LodYs styles_threeColumns__r1OOn']//child::img")
+
 
 
 
