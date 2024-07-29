@@ -15,9 +15,7 @@ time.sleep(20)
 
 # Формируем список урлов картинок
 img_urls = []
-n = 0
 for i in browser.find_elements(By.TAG_NAME, "a"):
-    n += 1
     if "/orig" in i.get_attribute('href'):
         img_src = i.get_attribute('href')
         img_urls.append(img_src)
