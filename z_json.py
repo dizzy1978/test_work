@@ -1,3 +1,5 @@
+# Парсим "О фильме", формируем словарь из него - JSON
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -23,7 +25,6 @@ for e in SEARCH_AREA.find_elements(By.XPATH, "./*"):
 
 with open(r'film_data\info\film_data.json', 'w') as f:
     json.dump(json_data, f, ensure_ascii=False)
-
 
 print("Film_data JSON file successfully saved")
 
