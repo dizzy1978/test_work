@@ -6,12 +6,15 @@ class BasePageLocators:
 
 
 class MainPageLocators:
+    BASE_LINK = "https://www.kinopoisk.ru"
     SEARCH_AREA = (By.XPATH, '//*[@placeholder="Фильмы, сериалы, персоны"]')
     SUBMIT_BUTTON = (By.XPATH, '//*[@type="submit"]')
+    FILM_TITLE = "Ирония судьбы, или С легким паром"
 
 
 class SearchResultsPageLocators:
     SEARCH_RESULT_PAGE_MARK = (By.XPATH, "//div[@class='search_results']")  # Должен содержать "Скорее всего, вы ищете"
+    CORRECT_MARK = "Скорее всего, вы ищете"
     SEARCH_TITLE = (
     By.XPATH, "//a[contains(text(),'Ирония судьбы') and contains(text(),'С легким паром')]")  # for click
     SEARCH_RATING = (By.XPATH,
@@ -27,6 +30,7 @@ class FilmPageLocators:
     POSTER_SRC = (By.XPATH, "//a[@class='styles_posterLink__C1HRc']/img")
     ABOUT_FILM_BLOCK = (By.XPATH, "//div[@class='styles_rowLight__P8Y_1 styles_row__da_RK']")
     IMAGES_LINK = (By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
+    ALL_IMAGES_URL = "https://www.kinopoisk.ru/film/77331/stills/"
 
 
 
