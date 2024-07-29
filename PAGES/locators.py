@@ -32,6 +32,7 @@ class FilmPageLocators:
     ABOUT_FILM_BLOCK = (By.XPATH, "//div[@class='styles_rowLight__P8Y_1 styles_row__da_RK']")
     IMAGES_LINK = (By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
     ALL_IMAGES_URL = "https://www.kinopoisk.ru/film/77331/stills/"
+    REVIEWS_LINK = (By.XPATH, "_")
 
 
 
