@@ -17,3 +17,5 @@ img = requests.get(img_src)
 
 with open(r"film_data\main_image\poster.jpg", "wb") as file:
     file.write(img.content)
+
+print("Film Poster image successfully saved")
