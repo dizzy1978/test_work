@@ -33,8 +33,8 @@ class FilmPage(BasePage):
             file.write(img.content)
         print("---Film Poster image successfully saved")
 
-    def do_save_film_info_to_json(self):  # Сохраняем информацию из блока "О фильме" в JSON файл  (путь захардкожен, можно вынести в локаторы)
-        about_film_block = self.browser.find_element(FilmPageLocators.ABOUT_FILM_BLOCK)  # Весь div карточки
+    def do_save_film_info_to_json(self):  # Сохраняем информацию из блока "О фильме" в JSON файл  (путь захардкожен, лучше создавать. Слэши под Линукс)
+        about_film_block = self.browser.find_element(FilmPageLocators.ABOUT_FILM_BLOCK)  # Общий div блока
         json_data = {}
         for e in about_film_block.find_elements(FilmPageLocators.ALL_CHILD):
             property = e.find_elements(FilmPageLocators.ALL_CHILD)
@@ -45,6 +45,14 @@ class FilmPage(BasePage):
         with open(r'film_data\info\film_data.json', 'w') as f:
             json.dump(json_data, f, ensure_ascii=False)
         print("---Film_data JSON file successfully saved")
+
+    def go_to_images_inset(self):  # Переходим на вкладку "Изображения"
+        images_link = self.browser.find_element(FilmPageLocators.IMAGES_LINK)
+        images_link.click()
+        gotlink = self.browser.current_url
+        assert gotlink == FilmPageLocators.ALL_IMAGES_URL, "Wrong film images URL!"
+        print("---Вкладка Изображения успешно открыта")
+
 
 
 
