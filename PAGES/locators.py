@@ -17,6 +17,7 @@ class SearchResultsPageLocators:
     SEARCH_RATING = (By.XPATH,
                      "//div[@class='element most_wanted']/div[@class='right']/div[@class='rating  ratingGreenBG']")  # bad bad bad
     SEARCH_RELEASE = (By.XPATH, "//div[@class='element most_wanted']//span[@class='year']")  # so-so
+    FILM_URL = "https://www.kinopoisk.ru/film/77331/"
 
 
 class FilmPageLocators:
