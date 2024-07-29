@@ -15,3 +15,8 @@ class MainPage(BasePage):
         submit_button = self.browser.find_element(MainPageLocators.SUBMIT_BUTTON)
         submit_button.click()
         print("---Переходим на страницу фильма")
+
+
+
+
+
