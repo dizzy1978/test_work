@@ -29,7 +29,8 @@ class FilmPageLocators:
     FILM_RATING = (By.XPATH, "//span[contains(@class, 'film-rating-value')]/span[contains(@class, 'styles_rating')]")  # текст должен быть равен рейтингу из поиска
     FILM_RELEASE = (By.XPATH, "//a[contains(@href, 'lists/movies/year')]")
     POSTER_SRC = (By.XPATH, "//a[@class='styles_posterLink__C1HRc']/img")
-    ABOUT_FILM_BLOCK = (By.XPATH, "//div[@class='styles_rowLight__P8Y_1 styles_row__da_RK']")
+    ABOUT_FILM_BLOCK = (By.XPATH, "//div[@{'data-test-id'}='encyclopedic-table']']")
+    ALL_CHILD = (By.XPATH, "./*")
     IMAGES_LINK = (By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
     ALL_IMAGES_URL = "https://www.kinopoisk.ru/film/77331/stills/"
     REVIEWS_LINK = (By.XPATH, "_")
