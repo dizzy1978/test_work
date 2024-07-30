@@ -1,20 +1,31 @@
+import time
+
 from .base_page import BasePage
 from .locators import MainPageLocators
+from .locators import SearchResultsPageLocators
 
 
 class MainPage(BasePage):
 
-    def should_be_search_area(self):  # Проверка наличия поля поиска
-        assert self.is_element_present(MainPageLocators.SEARCH_AREA,
-                                       MainPageLocators.BASE_LINK), "Search area is not presented!"
-        print("---Поле поиска найдено")
-
-    def do_film_search(self):  # Передаем название фильма в поиск и ждем "Найти"
-        search_area = self.browser.find_element(MainPageLocators.SEARCH_AREA)
+    def do_film_search(self):  # Передаем название фильма в поле поиска и ждем "Найти"
+        search_area = self.browser.find_element(*MainPageLocators.SEARCH_AREA)
         search_area.send_keys(MainPageLocators.FILM_TITLE)
-        submit_button = self.browser.find_element(MainPageLocators.SUBMIT_BUTTON)
+        submit_button = self.browser.find_element(*MainPageLocators.SUBMIT_BUTTON)
         submit_button.click()
-        print("---Переходим на страницу фильма")
+        print("---Go to search results page")
+
+    def should_be_search_results_page(self):  # Проверка что это страница результатов поиска
+        search_result_page_mark = self.browser.find_element(SearchResultsPageLocators.SEARCH_RESULT_PAGE_MARK)
+        assert (SearchResultsPageLocators.CORRECT_MARK) in search_result_page_mark, "Its not search results page!"
+        print("---This is search results page")
+
+    def do_click_on_founded_film(self): # Находим ссылку на искомый фильм и кликаем по ней, проверяем, что попали туда
+        search_title_link = self.browser.find_element(SearchResultsPageLocators.SEARCH_TITLE)
+        search_title_link.click()
+        gotlink = self.browser.current_url
+        assert SearchResultsPageLocators.FILM_URL in gotlink, "Wrong film URL!"
+        print("---Страница фильма идентифицирована")
+
 
 
 
