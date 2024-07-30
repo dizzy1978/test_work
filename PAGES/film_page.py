@@ -74,3 +74,4 @@ class FilmPage(BasePage):
         # Запуск многопоточного скачивания, максимум 16 потоков
         with ThreadPoolExecutor(max_workers=16) as executor:
             executor.map(download, img_urls)
+
