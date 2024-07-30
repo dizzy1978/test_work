@@ -33,7 +33,7 @@ class FilmPageLocators:
     ALL_CHILD = (By.XPATH, "./*")
     IMAGES_LINK = (By.XPATH, "//a[@href='/film/77331/stills/' and text()[. ='Изображения']]")
     ALL_IMAGES_URL = "https://www.kinopoisk.ru/film/77331/stills/"
-    REVIEWS_LINK = (By.XPATH, "_")
+    REVIEWS_LINK = (By.XPATH, "//a[@href='/film/77331/reviews/'][text()[. ='Рецензии']]")
     REVIEWS_URL = "https://www.kinopoisk.ru/film/77331/reviews/"
 
 
