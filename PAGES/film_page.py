@@ -56,10 +56,24 @@ class FilmPage(BasePage):
         print("---Film data JSON-file successfully saved")
 
 
+
     def do_async_save_film_images(self):
-        # Get code from z_async_save_all_images.py
-        print('говно'*100)
-        pass
+        # Формируем список урлов картинок
+        img_urls = []
+        for i in self.browser.find_elements(By.TAG_NAME, "a"):
+            if "/orig" in i.get_attribute('href'):
+                img_src = i.get_attribute('href')
+                img_urls.append(img_src)
+        # Функция скачивания и записи файла с уникальным именем
+        def download(url):
+            img = requests.get(url)
+            file_name = f'{uuid.uuid1()}.jpg'
+            with open(rf"film_data\other_images\{file_name}.jpg", "wb") as file:
+                file.write(img.content)
+            print(f"Image {file_name}.jpg successfully saved")
+        # Запуск многопоточного скачивания, максимум 16 потоков
+        with ThreadPoolExecutor(max_workers=16) as executor:
+            executor.map(download, img_urls)
 
 
 
