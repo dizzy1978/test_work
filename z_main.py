@@ -10,11 +10,9 @@ browser.get(main_url)
 time.sleep(15)
 
 
-
-
 film_title = "Ирония судьбы, или С легким паром"
 
-# Main_Page
+Main_Page
 print('\t', "Main Page")
 browser.get(main_url)
 time.sleep(15)
