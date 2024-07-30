@@ -1,4 +1,4 @@
-# pytest -v --tb=line test_product_page.py # Выводим только одну строку из лога каждого упавшего теста.
+# pytest -v --tb=line test_all_suite.py # Выводим только одну строку из лога каждого упавшего теста.
 import pytest
 import time
 from .PAGES.main_page import MainPage
