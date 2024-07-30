@@ -2,11 +2,19 @@
 import pytest
 import time
 from .PAGES.main_page import MainPage
-from .pages.search_results_page import SearchResultsPage
-from .pages.login_page import LoginPage
+from PAGES.search_results_page import SearchResultsPage
+from PAGES.film_page import FilmPage
 
-def search_area_is_present(browser):
-    page = MainPage(browser, link)
+base_link = "https://www.kinopoisk.ru"
 
-    pass
+
+def test_search_area_shuold_be_present_in_base_page(browser):
+    page = MainPage(browser, base_link)
+    page.open()
+    page.should_be_search_area()
+
+def test_searching_film(browser):
+    page = MainPage(browser, base_link)
+    page.open()
+    page.do_film_search()
 
