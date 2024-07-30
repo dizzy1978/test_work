@@ -25,7 +25,7 @@ for e in REVIEWS_BLOCK.find_elements(By.XPATH, "./li"):
         pass
 with open(r'film_data\info\film_reviews_summary.json', 'w') as f:
     json.dump(json_reviews, f, ensure_ascii=False)
-print("Film_reviews_summary JSON file successfully saved")
+print("---Film_reviews_summary JSON file successfully saved")
 
 
 

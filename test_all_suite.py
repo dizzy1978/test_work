@@ -51,8 +51,8 @@ images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 #     page.do_save_film_info_to_json()
 
 
-def test_do_save_images_async(browser):
-    page = FilmPage(browser, images_link)
-    page.open()
-    time.sleep(15)
-    page.do_async_save_film_images()
+# def test_do_save_images_async(browser):  # Working
+#     page = FilmPage(browser, images_link)
+#     page.open()
+#     time.sleep(15)
+#     page.do_async_save_film_images()

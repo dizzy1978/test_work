@@ -1,8 +1,5 @@
-from selenium.webdriver.common.by import By
-
 from .base_page import BasePage
 from .locators import MainPageLocators
-from .locators import SearchResultsPageLocators
 from .locators import FilmPageLocators
 import requests
 import json
@@ -55,12 +52,11 @@ class FilmPage(BasePage):
             json.dump(json_data, f, ensure_ascii=False)
         print("---Film data JSON-file successfully saved")
 
-
-
+    # Асинхронно сохраняем картинки в файлы с уникальными именами
     def do_async_save_film_images(self):
         # Формируем список урлов картинок
         img_urls = []
-        for i in self.browser.find_elements(By.TAG_NAME, "a"):
+        for i in self.browser.find_elements(*FilmPageLocators.TAG_NAME_A):
             if "/orig" in i.get_attribute('href'):
                 img_src = i.get_attribute('href')
                 img_urls.append(img_src)
