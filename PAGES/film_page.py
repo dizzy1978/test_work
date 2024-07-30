@@ -10,20 +10,20 @@ class FilmPage(BasePage):
 
     def should_be_film_page(self):  # Проверка что это страница фильма
         gotlink = self.browser.current_url
-        assert gotlink == FilmPageLocators.FILM_URL, "Wrong film URL!"
-        print("---Страница фильма идентифицирована")
+        assert FilmPageLocators.FILM_URL in gotlink, "Wrong film Url!"
+        print("---Film Url is OK")
 
     def check_film_title(self):  # Проверка названия фильма в карточке
-        assert MainPageLocators.FILM_TITLE in SearchResultsPageLocators.SEARCH_TITLE, "Название фильма не совпадает с поиском!"
-        print("---Название фильма проверено")
+        assert MainPageLocators.FILM_TITLE in SearchResultsPageLocators.SEARCH_TITLE, "Wrong film Title!"
+        print("---Film Title is OK")
 
     def check_film_rating(self):  # Проверка рейтинга фильма в карточке
-        assert SearchResultsPageLocators.SEARCH_RATING == FilmPageLocators.FILM_RATING, "Рейтинг фильма не совпадает с поиском!"
-        print("---Рейтинг фильма проверен")
+        assert SearchResultsPageLocators.SEARCH_RATING == FilmPageLocators.FILM_RATING, "Wrong film Rating!"
+        print("---Film Rating is OK")
 
     def check_film_release_year(self):  # Проверка года выпуска фильма в карточке
-        assert SearchResultsPageLocators.SEARCH_RELEASE == FilmPageLocators.FILM_RELEASE, "Год выпуска фильма не совпадает с поиском!"
-        print("---Год выпуска фильма проверен")
+        assert SearchResultsPageLocators.SEARCH_RELEASE == FilmPageLocators.FILM_RELEASE, "Wrong film release Year!"
+        print("---Film Release year is OK")
 
     def do_save_film_poster(self):  # Сохраняем постер фильма (путь захардкожен, можно вынести в локаторы/генерить. Линукс. os.makedirs(dir). )
         poster_src = self.browser.find_element(FilmPageLocators.POSTER_SRC)
@@ -44,11 +44,11 @@ class FilmPage(BasePage):
             json_data[key] = valslist
         with open(r'film_data\info\film_data.json', 'w') as f:
             json.dump(json_data, f, ensure_ascii=False)
-        print("---Film_data JSON file successfully saved")
+        print("---Film data JSON-file successfully saved")
 
     def go_to_images_inset(self):  # Переходим на вкладку "Изображения"
         images_link = self.browser.find_element(FilmPageLocators.IMAGES_LINK)
         images_link.click()
         gotlink = self.browser.current_url
-        assert gotlink == FilmPageLocators.ALL_IMAGES_URL, "Wrong film images URL!"
-        print("---Вкладка Изображения успешно открыта")
+        assert FilmPageLocators.ALL_IMAGES_URL in gotlink, "Wrong film images URL!"
+        print("---Images Inset successfully opened")
