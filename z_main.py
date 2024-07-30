@@ -76,6 +76,12 @@ time.sleep(5)
 IMAGES_LINK.click()
 time.sleep(5)
 print(browser.current_url)
+
+REVIEWS_LINK = (By.XPATH, "//a[@href='/film/77331/reviews/'][text()[. ='Рецензии']]")
+time.sleep(5)
+REVIEWS_LINK.click()
+time.sleep(5)
+print(browser.current_url)
 print("DONE")
 
 
