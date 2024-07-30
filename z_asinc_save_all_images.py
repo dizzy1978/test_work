@@ -11,7 +11,7 @@ browser = webdriver.Chrome()
 
 main_url = "https://www.kinopoisk.ru/film/77331/stills/"
 browser.get(main_url)
-time.sleep(20) # Прописать явное ожидание, пока так чтобы руками вводить капчу
+time.sleep(20) # Прописать ожидание, пока так чтобы руками вводить капчу
 
 # Формируем список урлов картинок
 img_urls = []

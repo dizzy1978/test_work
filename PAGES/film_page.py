@@ -4,7 +4,8 @@ from .locators import SearchResultsPageLocators
 from .locators import FilmPageLocators
 import requests
 import json
-
+import uuid
+from concurrent.futures import ThreadPoolExecutor
 
 class FilmPage(BasePage):
 
@@ -52,3 +53,24 @@ class FilmPage(BasePage):
         gotlink = self.browser.current_url
         assert FilmPageLocators.ALL_IMAGES_URL in gotlink, "Wrong film images URL!"
         print("---Images Inset successfully opened")
+
+    def do_asinc_save_film_images(self):
+        all_images = self.browser.find_element(FilmPageLocators.ALL_IMAGES_URL)
+        # Формируем список урлов картинок
+        img_urls = []
+        for i in all_images.find_elements(FilmPageLocators.TAG_NAME_A):
+            if "/orig" in i.get_attribute('href'):
+                img_src = i.get_attribute('href')
+                img_urls.append(img_src)
+
+        # Функция скачивания и записи файла с уникальным именем
+        def download(url):
+            img = requests.get(url)
+            file_name = f'{uuid.uuid1()}.jpg'
+            with open(rf"film_data\other_images\{file_name}.jpg", "wb") as file:
+                file.write(img.content)
+            print(f"Image {file_name}.jpg successfully saved")
+
+        # Асинхронный запуск максимум 16 потоков
+        with ThreadPoolExecutor(max_workers=16) as executor:
+            executor.map(download, img_urls)
