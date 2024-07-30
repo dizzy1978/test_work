@@ -7,25 +7,25 @@ import json
 
 browser = webdriver.Chrome()
 
-main_url = "https://www.kinopoisk.ru/film/77331/"
+main_url = "https://www.kinopoisk.ru/film/77331/reviews/"
 browser.get(main_url)
 time.sleep(15)
 print (browser.current_url, '\n')
 time.sleep(5)
 
-ABOUT_FILM_BLOCK = browser.find_element(By.XPATH, "//div[@data-test-id='encyclopedic-table']") # Весь div карточки
-print(ABOUT_FILM_BLOCK)
-json_data = {}
-for e in ABOUT_FILM_BLOCK.find_elements(By.XPATH, "./*"):
-    print(e)
+REVIEWS_BLOCK = browser.find_element(By.XPATH, "//ul[@class='resp_type']") # Весь div сводки по рецензиям
+json_reviews = {}
+for e in REVIEWS_BLOCK.find_elements(By.XPATH, "./li"):
     property = e.find_elements(By.XPATH, "./*")
-    key = property[0].text
-    vals = property[1].find_elements(By.XPATH, "./*")
-    valslist = [v.text for v in vals]
-    json_data[key] = valslist
-with open(r'film_data\info\film_data.json', 'w') as f:
-    json.dump(json_data, f, ensure_ascii=False)
-print("Film_data JSON file successfully saved")
+    try:
+        key = property[0].text
+        value = property[1].text
+        json_reviews[key] = value
+    except:
+        pass
+with open(r'film_data\info\film_reviews_summary.json', 'w') as f:
+    json.dump(json_reviews, f, ensure_ascii=False)
+print("Film_reviews_summary JSON file successfully saved")
 
 
 
