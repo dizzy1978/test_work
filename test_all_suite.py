@@ -6,6 +6,7 @@ from pages.search_results_page import SearchResultsPage
 
 base_link = "https://www.kinopoisk.ru/"
 film_link = "https://www.kinopoisk.ru/film/77331/"
+images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 
 # def test_do_search_film(browser):
 #     page = MainPage(browser, base_link)  # Working
@@ -15,7 +16,7 @@ film_link = "https://www.kinopoisk.ru/film/77331/"
 #     #page.do_click_on_founded_film()
 
 
-# def test_founded_film_page(browser):  # Working
+# def test_check_film_page(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
 #     time.sleep(15)
@@ -39,9 +40,19 @@ film_link = "https://www.kinopoisk.ru/film/77331/"
 # def test_do_save_film_poster(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
+#     time.sleep(15)
 #     page.do_save_film_poster()
 
-def test_do_save_film_info_to_JSON(browser):
-    page = FilmPage(browser, film_link)
+
+# def test_do_save_film_info_to_JSON(browser):  # Working
+#     page = FilmPage(browser, film_link)
+#     page.open()
+#     time.sleep(15)
+#     page.do_save_film_info_to_json()
+
+
+def test_do_save_images_async(browser):
+    page = FilmPage(browser, images_link)
     page.open()
-    page.do_save_film_info_to_json()
+    time.sleep(15)
+    page.do_async_save_film_images()
