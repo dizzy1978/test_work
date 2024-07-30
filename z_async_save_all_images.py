@@ -1,4 +1,4 @@
-# Сохраняем все изображения асинхронно
+# Сохраняем все изображения многопоточно
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
@@ -28,7 +28,7 @@ def download(url):
         file.write(img.content)
     print(f"Image {file_name}.jpg successfully saved")
 
-# Асинхронный запуск максимум 16 потоков
+# Запуск многопоточного скачивания, максимум 16 потоков
 with ThreadPoolExecutor(max_workers=16) as executor:
     executor.map(download, img_urls)
 
