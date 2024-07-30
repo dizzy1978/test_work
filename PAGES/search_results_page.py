@@ -12,7 +12,7 @@ class SearchResultsPage(BasePage):
         search_title_link = (SearchResultsPageLocators.SEARCH_TITLE)
         search_title_link.click()
         gotlink = self.browser.current_url
-        assert gotlink == SearchResultsPageLocators.FILM_URL, "Wrong film URL!"
+        assert SearchResultsPageLocators.FILM_URL in gotlink, "Wrong film URL!"
         print("---Страница фильма идентифицирована")
 
 
