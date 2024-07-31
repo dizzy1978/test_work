@@ -12,8 +12,8 @@ def test_do_search_film(browser):
     page = MainPage(browser, base_link)  # Working
     page.open()  # Working
     page.do_film_search()  # Working
-    page.do_save_film_data_from_search_results_page()
-    #page.do_click_on_founded_film()
+    #page.do_save_film_data_from_search_results_page()
+    page.do_click_on_founded_film()
 
 
 # def test_check_film_page(browser):  # Working

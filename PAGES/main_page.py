@@ -34,13 +34,12 @@ class MainPage(BasePage):
             print(*film_data, file=file)
         print("---Film data from search results Page saved to temp")
 
-
     def do_click_on_founded_film(self): # Находим ссылку на искомый фильм и кликаем по ней, проверяем, что попали туда
         search_title_link = self.browser.find_element(*SearchResultsPageLocators.SEARCH_TITLE)
         search_title_link.click()
         gotlink = self.browser.current_url
         assert SearchResultsPageLocators.FILM_URL in gotlink, "Wrong film URL!"
-        print("---Страница фильма идентифицирована")
+        print("---Film Page url correct")
 
 
 
