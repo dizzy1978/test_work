@@ -13,9 +13,6 @@ time.sleep(15)
 print (browser.current_url, '\n')
 time.sleep(5)
 
-
-
-
 REVIEWS_BLOCK = browser.find_element(By.XPATH, "//ul[@class='resp_type']") # Весь div сводки по рецензиям
 json_reviews = {}
 for e in REVIEWS_BLOCK.find_elements(By.XPATH, "./li"):
