@@ -8,12 +8,12 @@ base_link = "https://www.kinopoisk.ru/"
 film_link = "https://www.kinopoisk.ru/film/77331/"
 images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 
-def test_do_search_film(browser):
-    page = MainPage(browser, base_link)  # Working
-    page.open()  # Working
-    page.do_film_search()  # Working
-    #page.do_save_film_data_from_search_results_page()
-    page.do_click_on_founded_film()
+# def test_do_search_film(browser):  # Working
+#     page = MainPage(browser, base_link)  # Working
+#     page.open()  # Working
+#     page.do_film_search()  # Working
+#     page.do_save_film_data_from_search_results_page()
+#     page.do_click_on_founded_film()
 
 
 # def test_check_film_page(browser):  # Working
@@ -30,11 +30,19 @@ def test_do_search_film(browser):
 #     page.check_film_title()
 
 
+
+def test_check_film_title(browser):
+    page = FilmPage(browser, film_link)
+    page.open()
+    page.check_saved_film_title()
+
+
 # def test_check_film_rating(browser):
 #     pass
 
 # def test_check_film_release_year(browser):
 #     pass
+
 
 
 # def test_do_save_film_poster(browser):  # Working
@@ -58,6 +66,12 @@ def test_do_search_film(browser):
 
 # def test_do_save_images_async(browser):  # Working
 #     page = FilmPage(browser, images_link)
+#     page.open()
+#     time.sleep(15)
+#     page.do_async_save_film_images()
+
+# def test_do_save_reviews_to_JSON(browser):
+#     page = FilmPage(browser, film_link)
 #     page.open()
 #     time.sleep(15)
 #     page.do_async_save_film_images()
