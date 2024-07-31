@@ -19,15 +19,31 @@ class FilmPage(BasePage):
         assert MainPageLocators.FILM_TITLE in search_title.text, "Wrong film Title!"
         print("---Film Title is OK")
 
-    # def check_film_rating(self):  # Проверка рейтинга фильма в карточке!!!!!!!!!! Разные страницы
-    #     search_rating = self.browser.find_element(SearchResultsPageLocators.SEARCH_RATING)
-    #     film_rating = self.browser.find_element(FilmPageLocators.FILM_RATING)
-    #     assert search_rating == film_rating, "Wrong film Rating!"
-    #     print("---Film Rating is OK")
+    def check_saved_film_title(self):  # Сравнение названия фильма с поиском
+        with open(r"film_data\temp\film_data_temp.txt", "r") as file:
+            for string in file:
+                data = string.split(';')
+        saved_title = data[0].strip().strip(")")
+        search_title = self.browser.find_element(*FilmPageLocators.FILM_TITLE)
+        print(search_title.text)
+        assert saved_title in search_title.text, "Film Title not same with searched!"
+        print("---Film Title same with searched")
 
-    # def check_film_release_year(self):  # Проверка года выпуска фильма в карточке!!!!!!!!!! Разные страницы
+    def check_saved_film_rating(self):  # Сравнение рейтинга фильма с поиском
+        with open(r"film_data\temp\film_data_temp.txt", "r") as file:
+            for string in file:
+                data = string.split(';')
+        saved_rating = data[1].strip()
+        search_rating = self.browser.find_element(*FilmPageLocators.FILM_RATING)
+        assert saved_rating in search_rating.text, "Film Rating not same with searched!"
+        print("---Film Rating same with searched")
+
+    # def check_saved_film_release_year(self):  # Проверка года выпуска фильма в карточке!!!!!!!!!! Разные страницы
     #     assert SearchResultsPageLocators.SEARCH_RELEASE == FilmPageLocators.FILM_RELEASE, "Wrong film release Year!"
     #     print("---Film Release year is OK")
+
+
+
 
     # Сохраняем постер фильма
     def do_save_film_poster(self):   # путь захардкожен, можно вынести в локаторы/генерить. Линукс. os.makedirs(dir).

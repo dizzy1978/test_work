@@ -30,15 +30,17 @@ images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 #     page.check_film_title()
 
 
+# def test_check_saved_film_title(browser):  # Working
+#     page = FilmPage(browser, film_link)
+#     page.open()
+#     page.check_saved_film_title()
 
-def test_check_film_title(browser):
+
+
+def test_check_saved_film_rating(browser):
     page = FilmPage(browser, film_link)
     page.open()
-    page.check_saved_film_title()
-
-
-# def test_check_film_rating(browser):
-#     pass
+    page.check_saved_film_rating()
 
 # def test_check_film_release_year(browser):
 #     pass
