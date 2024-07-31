@@ -9,13 +9,13 @@
 - Git
 
 Действия:
-- Склонировать проект с гита (https://github.com/dizzy1978/test_work.git)
+- Склонировать проект с гита (https://github.com/dizzy1978/test_work.git) 
 - Открыть проект в PyCharm, убедиться, что установлены библиотеки из requirements.txt
 - Открыть файл тестсьюта test_all_suite.py и запустить (Ctrl + Shift + F10)
 - Вариант запуска из командной строки, из каталога проекта: pytest -s C:\Users\dizzy\PycharmProjects\test_work\test_all_suite.py --no-header --no-summary -q in C:\Users\dizzy\PycharmProjects\test_work
 
 Комментарии:
 - Файлы, начинающиеся на z_ - это промежуточные скрипты, работающие самостоятельно, для тестсьюта не нужны
-- Тестовое задание лежит в папке проекта
+
    
   
