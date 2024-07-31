@@ -5,6 +5,7 @@ from pages.main_page import MainPage
 base_link = "https://www.kinopoisk.ru/"
 film_link = "https://www.kinopoisk.ru/film/77331/"
 images_link = "https://www.kinopoisk.ru/film/77331/stills/"
+revews_link = "https://www.kinopoisk.ru/film/77331/reviews/"
 
 
 # def test_do_search_film(browser):  # Working

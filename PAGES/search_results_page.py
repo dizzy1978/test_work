@@ -1,3 +1,5 @@
+# пока не используется, могут быть добавлены методы
+
 from .base_page import BasePage
 from .locators import SearchResultsPageLocators
 

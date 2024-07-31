@@ -14,10 +14,12 @@ class FilmPage(BasePage):
         assert FilmPageLocators.FILM_URL in gotlink, "Wrong film Url!"
         print("---Film Url is OK")
 
+
     def check_film_title(self):  # Проверка названия фильма в карточке
         search_title = self.browser.find_element(*FilmPageLocators.FILM_TITLE)
         assert MainPageLocators.FILM_TITLE in search_title.text, "Wrong film Title!"
         print("---Film Title is OK")
+
 
     def check_saved_film_title(self):  # Сравнение названия фильма с поиском
         with open(r"film_data\temp\film_data_temp.txt", "r") as file:
@@ -25,9 +27,9 @@ class FilmPage(BasePage):
                 data = string.split(';')
         saved_title = data[0].strip().strip(")")
         search_title = self.browser.find_element(*FilmPageLocators.FILM_TITLE)
-        print(search_title.text)
         assert saved_title in search_title.text, "Film Title not same with searched!"
         print("---Film Title same with searched")
+
 
     def check_saved_film_rating(self):  # Сравнение рейтинга фильма с поиском
         with open(r"film_data\temp\film_data_temp.txt", "r") as file:
@@ -38,11 +40,15 @@ class FilmPage(BasePage):
         assert saved_rating in search_rating.text, "Film Rating not same with searched!"
         print("---Film Rating same with searched")
 
-    # def check_saved_film_release_year(self):  # Проверка года выпуска фильма в карточке!!!!!!!!!! Разные страницы
-    #     assert SearchResultsPageLocators.SEARCH_RELEASE == FilmPageLocators.FILM_RELEASE, "Wrong film release Year!"
-    #     print("---Film Release year is OK")
 
-
+    def check_saved_film_release_year(self):  # Сравнение года выпуска фильма с поиском
+        with open(r"film_data\temp\film_data_temp.txt", "r") as file:
+            for string in file:
+                data = string.split(';')
+        saved_year = data[2].strip()
+        search_year = self.browser.find_element(*FilmPageLocators.FILM_RELEASE)
+        assert saved_year in search_year.text, "Film release Year not same with searched!"
+        print("---Film release Year same with searched")
 
 
     # Сохраняем постер фильма
@@ -53,6 +59,7 @@ class FilmPage(BasePage):
         with open(r"film_data\main_image\poster.jpg", "wb") as file:
             file.write(img.content)
         print("---Film Poster image successfully saved")
+
 
     # Сохраняем инфо из блока "О фильме" в JSON файл
     def do_save_film_info_to_json(self):    # путь захардкожен, лучше создавать. Слэши под Линукс
