@@ -52,6 +52,16 @@ class FilmPage(BasePage):
             json.dump(json_data, f, ensure_ascii=False)
         print("---Film data JSON-file successfully saved")
 
+
+    # Сохраняем fullscreen браузера страницы фильма
+    def do_save_fullscreen_cs_film_card(self):
+        fs = self.browser.find_element(*FilmPageLocators.TAG_NAME_BODY)
+        png = fs.screenshot_as_png
+        with open(r"film_data\other_images\fullscreen.png", "wb") as file:   # путь захардкожен, лучше создавать
+            file.write(png)
+        print("---Fullscreen screenshot film Page successfully saved")
+
+
     # Асинхронно сохраняем картинки в файлы с уникальными именами
     def do_async_save_film_images(self):
         # Формируем список урлов картинок

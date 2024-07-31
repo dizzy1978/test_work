@@ -5,6 +5,7 @@ from selenium import webdriver
 def browser(request):
     print("\nSTART CHROME BROWSER")
     browser = webdriver.Chrome()
+    browser.maximize_window()
     browser.implicitly_wait(15)
     yield browser
     print("\nQUIT BROWSER..")
