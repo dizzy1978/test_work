@@ -4,7 +4,6 @@ from pages.main_page import MainPage
 
 base_link = "https://www.kinopoisk.ru/"
 film_link = "https://www.kinopoisk.ru/film/77331/"
-images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 
 
 # def test_do_search_film(browser):  # Working
@@ -65,10 +64,10 @@ images_link = "https://www.kinopoisk.ru/film/77331/stills/"
 #     page.do_save_fullscreen_cs_film_card()
 
 
-def test_do_save_images_async(browser):  # Working Можно добавить переход на Изображения со страницы фильма
-    page = FilmPage(browser, images_link)
-    page.open()
-    page.do_async_save_film_images()
+# def test_do_save_images_async(browser):  # Working
+#     page = FilmPage(browser, film_link)
+#     page.open()
+#     page.do_async_save_film_images()
 
 
 # def test_do_save_reviews_to_JSON(browser):  # Working

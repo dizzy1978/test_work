@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from .base_page import BasePage
 from .locators import MainPageLocators
 from .locators import FilmPageLocators
@@ -87,6 +88,8 @@ class FilmPage(BasePage):
 
     # Асинхронно сохраняем картинки в файлы с уникальными именами
     def do_async_save_film_images(self):
+        images_link = self.browser.find_element(*FilmPageLocators.IMAGES_LINK)
+        images_link.click()
         # Формируем список урлов картинок
         img_urls = []
         for i in self.browser.find_elements(*FilmPageLocators.TAG_NAME_A):
@@ -104,5 +107,23 @@ class FilmPage(BasePage):
         with ThreadPoolExecutor(max_workers=16) as executor:
             executor.map(download, img_urls)
 
+
+    # Сохраняем сводку по рецензиям в JSON файл
+    def do_save_reviews_summary(self):
+        reviews_link = self.browser.find_element(*FilmPageLocators.REVIEWS_LINK)
+        reviews_link.click()
+        reviews_block = self.browser.find_element(*FilmPageLocators.REVIEWS_BLOCK)
+        json_reviews = {}
+        for e in reviews_block.find_elements(*FilmPageLocators.ALL_CHILD_LI):
+            property = e.find_elements(*FilmPageLocators.ALL_CHILD)
+            try:
+                key = property[0].text
+                value = property[1].text
+                json_reviews[key] = value
+            except:
+                pass
+        with open(r'film_data\info\film_reviews_summary.json', 'w') as f:
+            json.dump(json_reviews, f, ensure_ascii=False)
+        print("---Film_reviews_summary JSON file successfully saved")
 
 

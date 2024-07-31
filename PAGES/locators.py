@@ -34,7 +34,7 @@ class FilmPageLocators:
     ALL_IMAGES_URL = "https://www.kinopoisk.ru/film/77331/stills/"
     REVIEWS_LINK = (By.XPATH, "//a[@href='/film/77331/reviews/'][text()[. ='Рецензии']]")
     REVIEWS_URL = "https://www.kinopoisk.ru/film/77331/reviews/"
-    REVIEWS_BLOCK = "//ul[@class='resp_type']"
+    REVIEWS_BLOCK = (By.XPATH, "//ul[@class='resp_type']")
     ALL_CHILD_LI = (By.XPATH, "./li")
     TAG_NAME_A = (By.TAG_NAME, "a")
     TAG_NAME_BODY = (By.TAG_NAME, "body")
