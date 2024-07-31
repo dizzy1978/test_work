@@ -5,7 +5,6 @@ from pages.main_page import MainPage
 base_link = "https://www.kinopoisk.ru/"
 film_link = "https://www.kinopoisk.ru/film/77331/"
 images_link = "https://www.kinopoisk.ru/film/77331/stills/"
-revews_link = "https://www.kinopoisk.ru/film/77331/reviews/"
 
 
 # def test_do_search_film(browser):  # Working
@@ -51,33 +50,30 @@ revews_link = "https://www.kinopoisk.ru/film/77331/reviews/"
 # def test_do_save_film_poster(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
-#     time.sleep(15)
 #     page.do_save_film_poster()
 
 
 # def test_do_save_film_info_to_JSON(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
-#     time.sleep(15)
 #     page.do_save_film_info_to_json()
 
 
 # def test_do_save_fullscreen_cs(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
-#     time.sleep(15)
 #     page.do_save_fullscreen_cs_film_card()
 
 
-# def test_do_save_images_async(browser):  # Working
-#     page = FilmPage(browser, images_link)
-#     page.open()
-#     time.sleep(15)
-#     page.do_async_save_film_images()
+def test_do_save_images_async(browser):  # Working Можно добавить переход на Изображения со страницы фильма
+    page = FilmPage(browser, images_link)
+    page.open()
+    page.do_async_save_film_images()
 
 
-# def test_do_save_reviews_to_JSON(browser):
+# def test_do_save_reviews_to_JSON(browser):  # Working
 #     page = FilmPage(browser, film_link)
 #     page.open()
-#     time.sleep(15)
-#     page.do_async_save_film_images()
+#     page.do_save_reviews_summary()
+
+
