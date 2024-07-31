@@ -1,4 +1,4 @@
-# Сохраняем full-screen окно браузера (захват по <body>)
+# Сохраняем full-screen окно браузера
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -18,4 +18,6 @@ fs = browser.find_element(By.TAG_NAME, "body")
 png = fs.screenshot_as_png
 with open(path_to_save, "wb") as file:
     file.write(png)
+
 print("---Fullscreen screenshot film Page successfully saved")
+
